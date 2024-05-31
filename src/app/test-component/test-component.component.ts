@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class TestComponentComponent {
 
+  building: any;
+  
   constructor() {}
 
   ngOnInit() {

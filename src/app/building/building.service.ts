@@ -17,7 +17,7 @@ export class BuildingService {
     return this.http.get<Building[]>(`${this.apiServerUrl}/api/buildings`);
   }
 
-  public getBuildingById(buildingIdId: number): Observable<Building[]>{
-    return this.http.get<Building[]>(`${this.apiServerUrl}/api/buildings/${buildingIdId}`);
+  public getBuildingById(buildingIdId: number): Observable<Building>{
+    return this.http.get<Building>(`${this.apiServerUrl}/api/buildings/${buildingIdId}`);
 }
 }

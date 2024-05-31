@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BuildingService } from './building.service';
+import { BuildingService } from './building/building.service';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +9,29 @@ import { BuildingService } from './building.service';
 export class AppComponent implements OnInit{
   title = 'buy-or-rent';
 
-  building: any;
+  // building: any;
 
-  constructor(private buildingService: BuildingService) {}
+  // constructor(private buildingService: BuildingService) {}
 
   ngOnInit() {
-    this.getBuildings();
+    // this.getBuildings();
   }
 
-  getBuildings() {
-    this.buildingService.getBuilding().subscribe(response => {
-      this.building = response;
-    });
-  }
+  // getBuildings() {
+  //   this.buildingService.getBuilding().subscribe(response => {
+  //     this.building = response;
+  //   });
+  // }
 
-  getBuildingById(id: number){
-    console.log('Button was clicked!');
-    this.buildingService.getBuildingById(id).subscribe(response =>{
-      this.building = response;
-    }, error => {
-      console.error('API Error:', error);
-      alert('Failed to fetch data.');
-  });
-  }
+  // getBuildingById(id: number){
+  //   console.log('Button was clicked!');
+  //   this.buildingService.getBuildingById(id).subscribe(response =>{
+  //     this.building = response;
+  //   }, error => {
+  //     console.error('API Error:', error);
+  //     alert('Failed to fetch data.');
+  // });
+  // }
+
+
 }

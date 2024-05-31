@@ -8,100 +8,16 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- <div style="text-align:center">
+    <div style="text-align:center">
         <h1>Welcome to {{ title }}!</h1>
         <nav>
-          <a routerLink="/">Home</a>
-          <a routerLink="/test-component">My New Component</a>
+          <a routerLink="/">Home&emsp;</a>
+          <a routerLink="/test">Test-component&emsp;</a>
+          <a routerLink="/buildings">Buildings</a>
         </nav>
         <router-outlet></router-outlet>
-      </div> -->
-      <router-outlet></router-outlet>
-  <div class="container" onclick="">
-    <div class="row clearfix" *ngIf="building">
-            <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let item of building">
-                <div class="boxs project_widget">
-                     <div class="pw_img">
-                        <img class="img-responsive" src="assets\pictures\{{item.image_url}}" alt="About the image">
-                    </div>
-                    <div class="pw_content">
-                        <div class="pw_header">
-                            <h6>{{item.type}}, {{item.rooms}} camere, et {{item.floor}}</h6>
-                            <small class="text-muted">{{item.type}}  |  Last Update: {{item.date}}</small>
-                        </div>
-                        <div class="pw_meta">
-                            <span>{{item.price}} EUR</span>
-                            <small class="text-muted">{{item.country}}, {{item.city}} {{item.region}} </small>
-                            <small class="text-muted">{{item.region}} </small>
-                            <button (click)="getBuildingById(item.id)">View</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div *ngIf="building">
-              <ul>
-                <li *ngFor="let item of building">
-                  {{ item.name }}
-                  <h1>{{item.country}}</h1>
-                </li>
-              </ul>
-            </div> -->
-            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="boxs project_widget">
-                    <div class="pw_img">
-                        <img class="img-responsive" src="https://www.bootdey.com/image/280x280/87CEFA/000000" alt="About the image">
-                    </div>                            
-                    <div class="pw_content">
-                        <div class="pw_header">
-                            <h6>New Dashboard</h6>
-                            <small class="text-muted">Falcon  |  Last Update: 17 Dec 2017</small>
-                        </div>
-                        <div class="pw_meta">
-                            <span>921 USD</span>
-                            <small class="text-muted">Budget / Salary</small>
-                            <small class="text-success">Early Dec 2017</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="boxs project_widget">
-                     <div class="pw_img">
-                        <img class="img-responsive" src="https://www.bootdey.com/image/280x280/FF7F50/000000" alt="About the image">
-                    </div>
-                    <div class="pw_content">
-                        <div class="pw_header">
-                            <h6>Mobile App</h6>
-                            <small class="text-muted">Falcon  |  Last Update: 21 Dec 2017</small>
-                        </div>
-                        <div class="pw_meta">
-                            <span>1,870 USD</span>
-                            <small class="text-muted">Budget / Salary</small>
-                            <small class="text-danger">10 Days Remaining</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="boxs project_widget">
-                     <div class="pw_img">
-                        <img class="img-responsive" src="https://www.bootdey.com/image/280x280/20B2AA/000000" alt="About the image">
-                    </div>
-                    <div class="pw_content">
-                        <div class="pw_header">
-                            <h6>New Dashboard</h6>
-                            <small class="text-muted">Falcon  |  Last Update: 28 Dec 2017</small>
-                        </div>
-                        <div class="pw_meta">
-                            <span>870 USD</span>
-                            <small class="text-muted">Budget / Salary</small>
-                            <small class="text-warning">6 Days Remaining</small>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div>
+      </div>
+
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
