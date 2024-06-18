@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Building } from './building';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuildingService {
 
-  private apiServerUrl= environment.apiBaseUrl;
+  private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +18,38 @@ export class BuildingService {
     return this.http.get<Building[]>(`${this.apiServerUrl}/api/buildings`);
   }
 
-  public getBuildingById(buildingIdId: number): Observable<Building>{
-    return this.http.get<Building>(`${this.apiServerUrl}/api/buildings/${buildingIdId}`);
-}
+  public getBuildingById(buildingId: number | null): Observable<Building> {
+    return this.http.get<Building>(`${this.apiServerUrl}/api/buildings/${buildingId}`);
+  }
+
+  public addBuilding(building: Building): Observable<Building> {
+    return this.http.post<Building>(`${this.apiServerUrl}/api/buildings/add`, building).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public editBuilding(buildingId: number, building: Building):Observable<Building>{
+    return this.http.put<Building>(`${this.apiServerUrl}/api/buildings/edit/${buildingId}`, building).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public deleteBuildingById(buildingId: number): Observable<Building> {
+    return this.http.delete<Building>(`${this.apiServerUrl}/api/buildings/delete/${buildingId}`);
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    // Handle error based on the status code or error message
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
+  }
+
+
 }

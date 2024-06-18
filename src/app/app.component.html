@@ -12,13 +12,14 @@
         <h1>Welcome to {{ title }}!</h1>
         <nav>
           <a routerLink="/">Home&emsp;</a>
-          <a routerLink="/test">Test-component&emsp;</a>
+          <a routerLink="/add">Test-component&emsp;</a>
           <a routerLink="/buildings">Buildings</a>
         </nav>
         <router-outlet></router-outlet>
       </div>
-
-
+      <div>
+        <button routerLink="/add">Add Building</button>
+      </div>
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

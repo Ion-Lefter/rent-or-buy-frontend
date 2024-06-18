@@ -17,6 +17,10 @@ export class AppComponent implements OnInit{
     // this.getBuildings();
   }
 
+  refreshpage(){
+    console.log("button was clicked!")
+  }
+
   // getBuildings() {
   //   this.buildingService.getBuilding().subscribe(response => {
   //     this.building = response;

@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { BuildingComponent } from './building/building.component';
+import { BuildingFormComponent } from './building-form/building-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponentComponent,
-    BuildingComponent
+    BuildingComponent,
+    BuildingFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DatePipe 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

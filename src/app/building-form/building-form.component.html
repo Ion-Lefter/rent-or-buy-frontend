@@ -1,0 +1,118 @@
+<form [formGroup]="buildingForm" (ngSubmit)="onSubmit()">
+    <!-- <div>
+        <label for="id">ID</label>
+        <input id="id" formControlName="id" readonly class="readonly-input">
+    </div> -->
+
+    <!-- <div>
+        <label for="country">Country</label>
+        <input id="country" formControlName="country">
+        <div *ngIf="buildingForm.get('country')?.invalid && buildingForm.get('country')?.touched">
+            Enter a valid country.
+        </div>
+    </div> -->
+
+    <div>
+        <label for="country">Country</label>
+        <select type="text" id="country" formControlName="country">
+            <option>Romania</option>
+            <option>Republica Moldova</option>
+        </select>
+        <div *ngIf="buildingForm.get('country')?.invalid && buildingForm.get('country')?.touched">
+            Enter a valid country.
+        </div>
+    </div>
+
+
+    <div>
+        <label for="city">city</label>
+        <select type="text" id="city" formControlName="city">
+            <option>Galati</option>
+            <option>Bucuresti</option>
+            <option>Rezina</option>
+            <option>Chisinau</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="seller">seller</label>
+        <select type="text" id="seller" formControlName="seller">
+            <option>Agency</option>
+            <option>Owner</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="type">Type</label>
+        <select type="text" id="type" formControlName="type">
+            <option>Apartment</option>
+            <option>House</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="region">Region</label>
+        <select type="text" id="region" formControlName="region">
+            <option>Mazepa 1</option>
+            <option>Mazepa 2</option>
+            <option>Centru</option>
+            <option>Tiglina</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="street_name">Street Name</label>
+        <input type="text" id="street_name" formControlName="street_name">
+    </div>
+
+    <div>
+        <label for="street_number">Street Number</label>
+        <input type="number" id="street_number" formControlName="street_number">
+    </div>
+
+    
+    <div>
+        <label for="floor">Floor</label>
+        <select type="number" id="floor" formControlName="floor">
+            <option *ngFor="let floorValue of floorN" [value]="floorValue">{{ floorValue }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="area">Area</label>
+        <input type="number" id="area" formControlName="area">
+    </div>
+
+    <div>
+        <label for="year">Year</label>
+        <select type="number" id="year" formControlName="year">
+            <option *ngFor="let yearValue of yearN" [value]="yearValue">{{ yearValue }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="rooms">Rooms</label>
+        <select type="number" id="rooms" formControlName="rooms">
+            <option *ngFor="let roomsValue of roomN" [value]="roomsValue">{{ roomsValue }}</option>
+        </select>
+    </div>
+
+    <!-- <div>
+        <label for="date">Date</label>
+        <input type="text" id="date" formControlName="date">
+    </div> -->
+
+    <div>
+        <label for="price">price</label>
+        <input type="number" id="price" formControlName="price">
+    </div>
+
+    <div>
+        <label for="image_url">image_url</label>
+        <input type="text" id="image_url" formControlName="image_url">
+    </div>
+
+
+
+    <button type="submit" [disabled]="buildingForm.invalid">Submit</button>
+</form>

@@ -24,7 +24,10 @@
                             <span>{{item.price}} EUR</span>
                             <small class="text-muted">{{item.country}}, {{item.city}} {{item.region}} </small>
                             <small class="text-muted">{{item.region}} </small>
-                            <button (click)="getBuildingById(item.id)" routerLink="/test">View</button>
+                            <button (click)="getBuildingById(item.id)">View</button>
+                            <button (click)="getEditForm(item.id)">Edit</button>
+                            <!--<button  routerLink="/buildings/edit/{{item.id}}">Edit</button>-->
+                            <button (click)="deleteBuildingById(item.id)">Delete</button>
                         </div>
                     </div>
                 </div>

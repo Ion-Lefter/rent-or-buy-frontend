@@ -4,12 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { BuildingComponent } from './building/building.component';
+import { BuildingFormComponent } from './building-form/building-form.component';
 
 
 const routes: Routes = [
   {path: 'home', component: AppComponent, title: "Home"},
-  {path: 'test', component: TestComponentComponent, title: "Test"},
-  {path: 'buildings', component: BuildingComponent, title: "Buildings"}
+  {path: 'buildings/:id', component: TestComponentComponent, title: "TestOK"},
+  {path: 'buildings', component: BuildingComponent, title: "Buildings"},
+  {path: 'add', component: BuildingFormComponent, title: "Add Building"},
+  {path: 'buildings/edit/:id', component: BuildingFormComponent, title: "Test edit button"}
 ]
 
 @NgModule({
