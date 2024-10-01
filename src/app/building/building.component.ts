@@ -4,6 +4,7 @@ import { SharedService } from './shared.service';
 import { Router } from '@angular/router';
 import { TestComponentComponent } from '../test-component/test-component.component';
 import { Building } from './building';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-building',
@@ -19,6 +20,13 @@ export class BuildingComponent {
 
   ngOnInit() {
     this.getBuildings();
+    const scrollPosition = localStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      setTimeout(() => {
+      window.scrollTo(0, +scrollPosition);
+      localStorage.removeItem('scrollPosition'); // Clean up after restoring
+      }, 35);
+    }
   }
 
   getBuildings() {
@@ -32,7 +40,8 @@ export class BuildingComponent {
     this.buildingService.getBuildingById(id).subscribe(response =>{
       this.sharedService.setBuilding(response);
       this.building = response;
-      this.router.navigate(['/buildings', id]); // Navigate to the new route with the ID
+      localStorage.setItem('scrollPosition', window.scrollY.toString());
+      this.router.navigate(['/dashboard/buildings', id]); // Navigate to the new route with the ID
       console.log(response);
     }, error => {
       console.error('API Error:', error);
@@ -43,10 +52,11 @@ export class BuildingComponent {
 
   getEditForm(id: number){
     console.log('Edit button was clicked!');
+    localStorage.setItem('scrollPosition', window.scrollY.toString());
     this.buildingService.getBuildingById(id).subscribe(response =>{
       this.sharedService.setBuilding(response);
       this.building = response;
-      this.router.navigate(['/buildings/edit/', id]); // Navigate to the new route with the ID
+      this.router.navigate(['/dashboard/buildings/edit/', id]); // Navigate to the new route with the ID
       console.log(response);
     }, error => {
       console.error('API Error:', error);
@@ -64,6 +74,5 @@ export class BuildingComponent {
       alert('Failed to fetch data.');
   });
   }
-
   
 }

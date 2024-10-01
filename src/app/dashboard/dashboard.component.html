@@ -9,24 +9,20 @@
 </head>
 <body>
     <div style="text-align:center">
-        <!-- <h1>Welcome to {{ title }}!</h1> -->
-        <nav *ngIf="showNavBar">
-          <a routerLink="/dashboard">Home&emsp;</a>
-          <a routerLink="/login">Login&emsp;</a>
-          <a routerLink="/register">Register&emsp;</a>
-        </nav>
-        <router-outlet></router-outlet>
-    </div>
-          <!-- <a routerLink="/add">Test-component&emsp;</a>
-          <a routerLink="/buildings">Buildings&emsp;</a>
-          <a routerLink="/login">Login&emsp;</a>
-          <a routerLink="/logout">Logout&emsp;</a>
+        <h1>Welcome to {{ title }}!</h1>
+        <nav>
+          <!-- <a routerLink="/">Home&emsp;</a>   -->
+          <a routerLink="/dashboard">Dashboard&emsp;</a>
+          <a routerLink="/dashboard/add">Test-component&emsp;</a>
+          <a routerLink="/dashboard/buildings">Buildings&emsp;</a>
+          <!-- <a routerLink="/login">Login&emsp;</a> -->
+          <a (click)="logout()">Logout&emsp;</a>
         </nav>
         <router-outlet></router-outlet>
       </div>
       <div>
-        <button routerLink="/add">Add Building</button>
-      </div> -->
+        <button routerLink="/dashboard/add">Add Building</button>
+      </div>
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
