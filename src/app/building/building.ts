@@ -15,5 +15,6 @@ export interface Building{
         date: string;
         price: number;
         image_url: string;
+        username: string;
     
 }

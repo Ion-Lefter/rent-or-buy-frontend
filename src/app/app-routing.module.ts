@@ -26,6 +26,7 @@ const routes: Routes = [
         // { path: '', component: DashboardComponent },  // Default dashboard route
         {path: 'buildings/:id', component: TestComponentComponent, title: "TestOK"},
         {path: 'buildings', component: BuildingComponent, title: "Buildings"},
+        {path: 'myposts', component: BuildingComponent, title: "My Posts"},
         {path: 'add', component: BuildingFormComponent, title: "Add Building"},
         {path: 'buildings/edit/:id', component: BuildingFormComponent, title: "Test edit button"},
         {path: 'login', component: LoginComponent, title: "Login Page"},

@@ -19,6 +19,7 @@ export class LoginComponent {
       .subscribe({
         next: (response) => {
           this.authService.saveToken(response.accessToken);  // Assuming the response contains a JWT token
+          this.authService.saveUsername(this.username);
           this.router.navigate(['/dashboard']);        // Redirect to a secured page
         },
         error: (err) => {

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TestComponentComponent } from '../test-component/test-component.component';
 import { Building } from './building';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-building',
@@ -14,9 +15,11 @@ import { Subscription } from 'rxjs';
 export class BuildingComponent {
   title = 'buy-or-rent';
   building: any;
+  username: string | null = '';
+ 
   //private test: TestComponentComponent;
 
-  constructor(private buildingService: BuildingService,  private sharedService: SharedService, private router: Router) {}
+  constructor(private buildingService: BuildingService,  private sharedService: SharedService, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.getBuildings();
@@ -26,6 +29,7 @@ export class BuildingComponent {
       window.scrollTo(0, +scrollPosition);
       localStorage.removeItem('scrollPosition'); // Clean up after restoring
       }, 35);
+      this.username= this.authService.getUsername();
     }
   }
 
@@ -73,6 +77,15 @@ export class BuildingComponent {
       console.error('API Error:', error);
       alert('Failed to fetch data.');
   });
+  }
+
+  getMyPosts(){
+    const data = {
+      username: this.authService.getUsername()  // Retrieve username from AuthService
+    };
+    this.buildingService.getMyPosts(data).subscribe(response => {
+      this.building = response;
+    });
   }
   
 }

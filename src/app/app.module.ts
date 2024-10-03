@@ -15,6 +15,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     LogoutComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardHomeComponent,
+    MyPostsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { BuildingComponent } from '../building/building.component';
 import { Building } from '../building/building';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-building-form',
@@ -15,6 +16,8 @@ export class BuildingFormComponent {
 building: Building;
 isEditMode: boolean = false;
 itemId: number;
+username: string | null = '';
+//username: string;
 //buildingService: BuildingService;
  
 //datePipe: DatePipe;
@@ -25,11 +28,14 @@ console.log("submit button was presed");
   if (this.buildingForm.valid) {
     console.log(this.buildingForm.value);
     console.log(this.buildingForm);
+    console.log(this.username);
     this.building = this.buildingForm.value;
     const currentDate = new Date();
     const formattedDate = this.formatDate(currentDate);
     console.log(formattedDate);
-    this.building.date = formattedDate; 
+    this.building.date = formattedDate;
+    this.building.username = this.username!;
+
     if(this.isEditMode){
       this.buildingService.editBuilding(this.itemId, this.building).subscribe(
         response => {
@@ -70,7 +76,7 @@ console.log("submit button was presed");
   roomN: number[]=[];
 
   constructor(private formBuilder: FormBuilder, private buildingService: BuildingService, private datePipe: DatePipe, private route: ActivatedRoute,
-    private router: Router){
+    private router: Router, private authService: AuthService){
     this.building = {
         id: 1,
         country: '',
@@ -86,7 +92,8 @@ console.log("submit button was presed");
         rooms: 0,
         date: '2024-01-01',
         price: 0,
-        image_url: ''
+        image_url: '',
+        username: authService.getUsername()!
     }
     
     this.buildingForm = this.formBuilder.group({
@@ -103,7 +110,8 @@ console.log("submit button was presed");
       rooms: ['', Validators.required],
       date: [''],
       price: ['', Validators.required],
-      image_url: ['', Validators.required]
+      image_url: ['', Validators.required],
+      username: this.username
     })
 
     this.itemId = 0;
@@ -120,6 +128,8 @@ console.log("submit button was presed");
     for (let i = 1; i <= 12; i++) {
       this.roomN.push(i);
     }
+
+    this.username = this.authService.getUsername();
 
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
@@ -141,7 +151,8 @@ console.log("submit button was presed");
         year: data.year,
         rooms: data.rooms,
         price: data.price,
-        image_url: data.image_url
+        image_url: data.image_url,
+        //username: data.username
       })
     })
   }

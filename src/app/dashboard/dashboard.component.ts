@@ -10,12 +10,14 @@ import { LayoutService } from '../services/layout.service';
 })
 export class DashboardComponent implements OnInit {
   title = 'buy-or-rent-dashboard';
+  username: string | null = '';
 
 
   constructor(private authService: AuthService,  private router: Router, private layoutService: LayoutService) {}
   ngOnInit(){
         // Hide the main nav when on the dashboard
         this.layoutService.setNavBarVisibility(false);
+        this.username = this.authService.getUsername();
   }
 
   ngOnDestroy() {

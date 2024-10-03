@@ -51,5 +51,9 @@ export class BuildingService {
     return throwError(errorMessage);
   }
 
+  public getMyPosts(dataJson: any): Observable<Building[]> {
+    return this.http.post<Building[]>(`${this.apiServerUrl}/api/myposts`, dataJson);
+  }
+
 
 }

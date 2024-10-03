@@ -15,6 +15,15 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, credentials);
   }
 
+    // Save username to localStorage
+    saveUsername(username: string): void {
+      localStorage.setItem('authUsername', username);
+    }
+
+    getUsername(): string | null {
+      return localStorage.getItem('authUsername');
+    }
+
   // Save token to localStorage
   saveToken(token: string): void {
     localStorage.setItem('authToken', token);
