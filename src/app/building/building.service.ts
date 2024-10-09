@@ -55,5 +55,17 @@ export class BuildingService {
     return this.http.post<Building[]>(`${this.apiServerUrl}/api/myposts`, dataJson);
   }
 
+  public getAllPosts(dataJson: any): Observable<Building[]> {
+    return this.http.post<Building[]>(`${this.apiServerUrl}/api/allposts`, dataJson);
+  }
+
+  public addInfavorites(dataJson: any):Observable<void> {
+    return this.http.post<void>(`${this.apiServerUrl}/api/favorites/add`, dataJson);
+  }
+
+  public deleteFromFavorites(buildingId: number, username: String):Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/api/favorites/delete/${buildingId}/${username}`);
+  }
+
 
 }

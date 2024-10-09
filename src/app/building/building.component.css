@@ -107,3 +107,35 @@ body{
 .project_widget .pw_content .pw_meta span {
     font-weight: 500
 }
+
+/* CSS for icon-button */
+.icon-button {
+    background: none;       /* Remove background */
+    border: none;           /* Remove border */
+    padding: 0;             /* Remove padding */
+    margin: 0;              /* Remove margin */
+    cursor: pointer;        /* Change cursor to pointer */
+    display: inline-flex;   /* Align content inline */
+    align-items: center;    /* Center icon */
+    justify-content: center; /* Center icon */
+    color: red;
+  }
+  
+  .icon-button .material-icons {
+    font-size: 24px;        /* Adjust the icon size */
+    /* color: #000;            Set icon color */
+    color: #e8eaed !important;
+    filter: invert(0.5) sepia(1) saturate(10) hue-rotate(180deg);
+  }
+  
+  .icon-button:focus {
+    outline: none;          /* Remove the focus outline */
+  }
+
+.favorited {
+    fill: red; /* Change the fill color of the SVG */
+  }
+  
+.not-favorited {
+    fill: gray;
+  }

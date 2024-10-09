@@ -93,7 +93,8 @@ console.log("submit button was presed");
         date: '2024-01-01',
         price: 0,
         image_url: '',
-        username: authService.getUsername()!
+        username: authService.getUsername()!,
+        favorite: false
     }
     
     this.buildingForm = this.formBuilder.group({

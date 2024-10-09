@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MyPostsComponent } from './my-posts/my-posts.component';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DatePipe,

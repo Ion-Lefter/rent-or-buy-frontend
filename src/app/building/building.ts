@@ -16,5 +16,6 @@ export interface Building{
         price: number;
         image_url: string;
         username: string;
+        favorite: boolean;
     
 }
